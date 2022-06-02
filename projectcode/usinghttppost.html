@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Using HTTP Post &middot; Code</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Content/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/Content/vs.css">
+    <script src="/Scripts/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<div class="container">
+<h2>Using HTTP Post &middot; Code</h2>
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">UsingHTTPPost.aspx.cs</a></li>
+</ul>
+<pre><code class="csharp">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace MyWebApp.projects.asmx
+{
+    public partial class UsingHTTPPost : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Translatev2Button_Click(object sender, EventArgs e)
+        {
+            if (EnglishTextBox.Text != string.Empty)
+            {
+                try
+                {
+                    // this is the content of the request
+                    byte[] content = System.Text.Encoding.ASCII.GetBytes(
+                        "english=" + EnglishTextBox.Text);
+
+                    // create the request
+                    System.Net.WebRequest request = System.Net.HttpWebRequest.Create(
+                        "http://rodansotto.com/asmx/TranslateToFrenchService.asmx/TranslateToFrench");
+                    request.Method = "POST";
+                    request.ContentType = "application/x-www-form-urlencoded";
+                    request.ContentLength = content.Length;
+
+                    // write the content to the request stream
+                    System.IO.Stream requestStream = request.GetRequestStream();
+                    requestStream.Write(content, 0, content.Length);
+                    requestStream.Flush(); 
+
+                    // get the response
+                    System.Net.WebResponse response = request.GetResponse();                  
+                    // get the stream associated with the response
+                    System.IO.Stream responseStream = response.GetResponseStream();
+                    // pipes the stream to a higher level stream reader with the 
+                    //  required encoding format
+                    System.IO.StreamReader streamReader = 
+                        new System.IO.StreamReader(
+                            responseStream, System.Text.Encoding.UTF8);
+
+                    // the response is in XML format and normally needs to be handled
+                    // but since the XML response is simple enough that when displayed
+                    //  by the browser, it only displays what we need to display,
+                    //  the french text
+                    FrenchLabel.Text = streamReader.ReadToEnd();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+    }
+}
+</code></pre>
+<footer class="footer">
+    <p>Syntax highlighting from <a href="https://highlightjs.org/" target="_blank">highlight.js</a>.</p>
+</footer>
+</div>
+</body>
+</html>

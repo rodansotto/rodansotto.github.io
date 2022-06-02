@@ -1,0 +1,113 @@
+body {
+	font-family: Calibri;
+	/*font-size: 16px;*/ /* 16px is the default font-size */
+}
+div {
+	padding: 3px 5px 3px 5px;
+}
+ul, p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+a {
+	text-decoration: none;
+}
+h1 {
+	font-size: 34px;
+}
+h2 {
+	font-size: 19px;
+}
+h2 span {
+	color: Red;
+	font-size: 22px;
+}
+h3 {
+	font-size: 12px;
+}
+#wrapper {
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 960px;
+}
+#header {
+	margin-right: 10px;
+	margin-left: 10px;
+	width: 930px;
+	background-color: #6FD7FF;
+}
+#navigation ul li {
+	display: inline-block;
+}
+#navigation ul li a {
+	margin-right: 25px;
+}
+#sidebar {
+	margin-left: 10px;
+	float: left;
+	background-color: #9FADE6;
+	width: 200px;
+}
+#sidebar ul {
+	margin-top: 10px;
+}
+#sidebar ul li ul li a {
+	font-size: 14px;
+}
+#content {
+	margin-right: 10px;
+	float: right;
+	width: 720px;
+	background-color: #FFCDAF;
+}
+#footer {
+	margin-right: 10px;
+	margin-left: 10px;
+	clear: both;
+	background-color: #CC6444;
+	width: 930px;
+}
+#footer p {
+	font-size: 12px;
+}
+.art {
+	width: 234px;
+}
+
+@media screen and (max-width: 604px) {
+	#wrapper {
+		width: 604px;
+	}
+	#header, #footer {
+		width: 574px;
+	}
+	#content {
+		width: 364px;
+	}
+	.art {
+		width: 174px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	#wrapper {
+		width: 320px;
+	}
+	#header, #footer {
+		width: 290px;
+	}
+	#sidebar {
+		display:none;
+	}
+	#content {
+		float: none;
+		margin-left: 10px;
+		width: 290px;
+	}
+	.art {
+		width: 280px;
+	}
+}

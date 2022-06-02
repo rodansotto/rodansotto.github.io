@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Using Proxy &middot; Code</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Content/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/Content/vs.css">
+    <script src="/Scripts/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<div class="container">
+<h2>Using Proxy &middot; Code</h2>
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">UsingProxy.aspx.cs</a></li>
+</ul>
+<pre><code class="csharp">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace MyWebApp.projects.asmx
+{
+    public partial class UsingProxy : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TranslateButton_Click(object sender, EventArgs e)
+        {
+            if (EnglishTextBox.Text != string.Empty)
+            {
+                try
+                {
+                    // consuming a web service using a web reference
+                    MyWebService.TranslateToFrenchService service = 
+                        new MyWebService.TranslateToFrenchService();
+                    FrenchLabel.Text = 
+                        service.TranslateToFrench(EnglishTextBox.Text);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        protected void Translatev2Button_Click(object sender, EventArgs e)
+        {
+            if (Englishv2TextBox.Text != string.Empty)
+            {
+                try
+                {
+                    // consuming a web service using a service reference
+                    MyWebServiceB.TranslateToFrenchServiceSoapClient soapClient = 
+                        new MyWebServiceB.TranslateToFrenchServiceSoapClient();
+                    Frenchv2Label.Text = 
+                        soapClient.TranslateToFrench(Englishv2TextBox.Text);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<footer class="footer">
+    <p>Syntax highlighting from <a href="https://highlightjs.org/" target="_blank">highlight.js</a>.</p>
+</footer>
+</div>
+</body>
+</html>

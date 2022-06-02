@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Razor CS Demo &middot; Code</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Content/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/Content/vs.css">
+    <script src="/Scripts/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<div class="container">
+<h2>Razor CS Demo &middot; Code</h2>
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">Index.cshtml</a></li>
+</ul>
+<pre><code class="html">
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Bare.cshtml";
+}
+
+&lt;div>
+    
+&lt;h1>Razor Demo Using C#&lt;/h1>
+    
+@*  
+   Razor comments can be one line or multiple lines.
+   Unlike HTML comments, Razor comments are not rendered to the page.
+*@
+    
+@{
+   @* You can add Razor comments inside the Razor code block such as this. *@
+}
+    
+@{
+   // But why use Razor comments when you can use C# comments.
+   /*
+    * C# multi-line comment
+    */
+}
+    
+@*  
+   Razor code starts with @ character.
+   It can be a single statement block, an inline expression,
+    or a multi-statement block.
+   Once you start your code with @, all of the .NET framework,
+    ASP.NET, and all the C# features are available to you.
+*@
+    
+@* An example of a Razor single statement block: *@
+@{ var myGreeting = "&lt;Hello, World!>"; } 
+    
+@* 
+   Below is an example of a Razor inline expression.
+   Note that the output from server code is automatically HTML-encoded.
+    &lt; and > characters in the variable myGreeting will automatically
+    be encoded to &lt; and &gt; so it can be displayed properly
+    in the browser.  You can check the page source to verify this.
+*@
+&lt;p>The value of myGreeting is: @myGreeting&lt;/p>
+    
+@* 
+   A Razor inline expression can be multi-token if enclosed in ()
+    as in example below.
+   Note that () can also be used to explicitly declare a Razor
+    inline expression.
+*@
+&lt;p>@("The value of myGreeting is: " + myGreeting)&lt;/p>
+    
+@* Here is an example of a Razor multi-statement block *@
+@{
+    var myGreeting2 = "Hello, Universe!";
+    var myDate = DateTime.Today.ToString("MMMM dd, yyyy");   
+}
+    
+&lt;p>@myGreeting2 Today is @myDate.&lt;/p>
+    
+@*
+    You will notice in the previous examples of Razor code blocks, 
+     be they single or multi-statement blocks, are enclosed in {}.
+     They don't have to be always enclosed in {}.
+     Take for example the if statement below.  
+     Since it is essentially a single statement, 
+     it can follow the @ character immediately.
+     The same goes with for, foreach, switch, etc.
+*@
+    
+@{ var myMsg = ""; }
+    
+@if (IsPost) 
+{
+    myMsg = "This is a postback!";
+}
+else
+{
+    myMsg = "This is not a postback.";
+}
+
+&lt;p>@myMsg&lt;p>
+    
+@*
+    You can also mix text and markup in the code block.
+*@
+    
+@if (true)
+{
+    // Mixing markup in code is as easy as putting in the matching HTML tags.
+    &lt;p>The value of IsPost is: @IsPost&lt;/p>
+    
+    // You can use @: or &lt;text> to render plain text.
+    // If you check the page source, these plain texts are not enclosed in
+    //  any HTML tags.
+    @:This is plain text.
+    &lt;br />
+    &lt;text>Another plain text.&lt;/text>
+    &lt;br />
+    &lt;br />
+}
+    
+&lt;/div>
+</code></pre>
+<footer class="footer">
+    <p>Syntax highlighting from <a href="https://highlightjs.org/" target="_blank">highlight.js</a>.</p>
+</footer>
+</div>
+</body>
+</html>

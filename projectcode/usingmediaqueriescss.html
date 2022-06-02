@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Using Media Queries &middot; Code</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Content/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/Content/vs.css">
+    <script src="/Scripts/highlight.pack.js"></script>
+    <script>        hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<div class="container">
+<h2>Using Media Queries &middot; Code</h2>
+<ul class="nav nav-tabs">
+  <li role="presentation"><a href="/projectcode/usingmediaquerieshtml.html">UsingMediaQueries.html</a></li>
+  <li role="presentation" class="active"><a href="#">UsingMediaQueries.css</a></li>
+</ul>
+<pre><code class="css">
+* {
+    font-family: Calibri;
+}
+#wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    width: 960px;
+}
+#header {
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 940px;
+    background-color: #6FD7FF;
+}
+#navigation ul li {
+    display: inline-block;
+}
+#sidebar {
+    margin-right: 10px;
+    margin-left: 10px;
+    float: left;
+    background-color: #445FCC;
+    width: 220px;
+}
+#content {
+    margin-right: 10px;
+    float: right;
+    margin-left: 10px;
+    width: 700px;
+    background-color: #FFCDAF;
+}
+#footer {
+    margin-right: 10px;
+    margin-left: 10px;
+    clear: both;
+    background-color: #CC6444;
+    width: 940px;
+}
+
+@media screen and (max-width: 604px) {
+    #wrapper {
+        width: 604px;
+    }
+    #header, #footer {
+        width: 584px;
+    }
+    #content {
+        width: 344px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #wrapper {
+        width: 320px;
+    }
+    #header, #footer {
+        width: 300px;
+    }
+    #content, #sidebar {
+        width: 300px;
+    }
+}
+</code></pre>
+<footer class="footer">
+    <p>Syntax highlighting from <a href="https://highlightjs.org/" target="_blank">highlight.js</a>.</p>
+</footer>
+</div>
+</body>
+</html>

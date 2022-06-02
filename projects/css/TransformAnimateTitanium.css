@@ -1,0 +1,52 @@
+﻿@font-face {
+	font-family: 'linottesemibold';
+	src: url('./fonts/Linotte-SemiBold-webfont.eot');
+	src: url('./fonts/Linotte-SemiBold-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('./fonts/Linotte-SemiBold-webfont.woff2') format('woff2'),
+		 url('./fonts/Linotte-SemiBold-webfont.woff') format('woff'),
+		 url('./fonts/Linotte-SemiBold-webfont.ttf') format('truetype'),
+		 url('./fonts/Linotte-SemiBold-webfont.svg#linottesemibold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	background: radial-gradient(ellipse farthest-corner, hsl(210, 30%, 80%) 70%, white 100%);
+}
+
+.container {
+	/*width: 99%;
+	height: 99%;
+*/
+	width: 90vw;
+	margin-left: 5vw;
+	height: 84vh;
+	margin-top: 8vh;
+	
+	background: white;
+	
+	border: 1px solid red;
+}
+
+.container:hover {
+	/* see https://developer.mozilla.org/en-US/docs/Web/CSS/transform */
+	transform: perspective(500px) rotateX(45deg);
+
+	/* see https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin */
+	transform-origin: bottom;
+}
+
+.word {
+	position: relative;
+	left: 20vw;
+	top: 30vh;
+}
+
+.letter {
+	display: inline-block;
+	font-family: 'linottesemibold' , Arial, Sans-Serif;
+	font-size: 12vw;	
+	color: hsla(0, 0%, 0%, 1);
+
+	border: 1px solid red;
+}

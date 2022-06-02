@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html />
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Non Fluid Layout with Fonts and Images</title>
+    <link rel="icon" href="/images/rsicon.ico">
+    <link href="normalize.css" rel="stylesheet" type="text/css" />
+    <link href="NonFluidLayout.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="wrapper">
+        <!-- the header and navigation -->
+        <div id="header">
+            <div id="navigation">
+                <ul>
+                    <li><a href="#">Menu #1</a></li>
+                    <li><a href="#">Menu #2</a></li>
+                    <li><a href="#">Menu #3</a></li>
+                    <li><a href="#">Menu #4</a></li>
+                    <li><a href="#">Menu #5</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- the content -->
+        <div id="content">
+            <h1>
+                My Digital Art Creations</h1>
+            <h2>
+                Welcome and <span>thank you</span> for visiting this page. Here you will find my digital art
+                creations.</h2>
+            <h3>
+                * This is a 960px fixed width web page that also supports viewing on Nexus 7 tablets
+                and Nexus S smartphones. It uses CSS media queries to display the web page differently
+                on a Nexus 7 (604px wide) and Nexus S (320px wide).</h3>
+            <div>
+                <img class="art" src="./images/20141003-autumnleaf.jpg" alt="Autumn Leaf" />
+                <img class="art" src="./images/20141031-pacmanhaloween.jpg" alt="PacMan Haloween" />
+                <img class="art" src="./images/20141110-cocoabeachpier.jpg" alt="Cocoa Beach Pier" />
+                <img class="art" src="./images/20141205-yourpath.jpg" alt="Your Path" />
+                <img class="art" src="./images/20141219-letitgo.jpg" alt="Let It Go" />
+            </div>
+        </div>
+        <!-- the sidebar -->
+        <div id="sidebar">
+            <ul>
+                <li><a href="#">Menu #6</a></li>
+                <li><a href="#">Menu #7</a>
+                    <ul>
+                        <li><a href="#">Menu #8</a></li>
+                        <li><a href="#">Menu #9</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- the footer -->
+        <div id="footer">
+            <p>
+                Footer here</p>
+        </div>
+    </div>
+</body>
+</html>

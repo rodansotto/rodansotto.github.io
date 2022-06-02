@@ -1,0 +1,19 @@
+﻿div {
+    border: 1px dotted black;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.selectRow {
+    background-color: aqua;
+}
+
+.unselectRow {
+    background-color: none;
+}

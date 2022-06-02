@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/images/rsicon.ico">
+    <link type="text/css" rel="stylesheet" href="todo.css" />
+    <script type="text/javascript" src="todo_library.js"></script>
+    <script type="text/javascript" src="todo.js"></script>
+    <title>My To Do List</title>
+</head>
+<body>
+    <h1>My To Do List</h1>
+    <div id="divList" class="show">
+        <h2>To Do List</h2>
+        <table id="tableList">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                    <th>Notes</th>
+                    <th>Done</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <br />
+        <input type="button" name="new" id="new" value="New To Do..." />
+        <input type="button" name="edit" id="edit" value="Edit To Do..." />
+        <br />
+    </div>
+    <div id="divNewEdit" class="hide">
+        <h2 id="h2NewEdit">New To Do</h2>
+        <label for="description">Description: </label>
+        <input type="text" name="description" id="description" required />
+        <br />
+        <label for="dueDate">Due Date: </label>
+        <input type="date" name="dueDate" id="dueDate" required />
+        <br />
+        <label for="notes">Notes: </label>
+        <input type="text"  name="notes" id="notes" />
+        <br />
+        <label for="notes">Done: </label>
+        <input type="checkbox"  name="done" id="done" />
+        <br />
+        <input type="button" name="save" id="save" value="OK" />
+        <input type="button" name="cancel" id="cancel" value="Cancel" />
+    </div>
+</body>
+</html>

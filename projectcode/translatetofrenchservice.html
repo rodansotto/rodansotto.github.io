@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Translate To French Service &middot; Code</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Content/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/Content/vs.css">
+    <script src="/Scripts/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<div class="container">
+<h2>Translate To French Service &middot; Code</h2>
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">TranslateToFrenchService.asmx.cs</a></li>
+</ul>
+<pre><code class="csharp">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Services;
+
+namespace MyWebService
+{
+    /// &lt;summary>
+    /// Summary description for TranslateToFrenchService
+    /// &lt;/summary>
+    [WebService(Namespace = "http://rodansotto.com/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    [System.ComponentModel.ToolboxItem(false)]
+    // To allow this Web Service to be called from script,
+    //  using ASP.NET AJAX, uncomment the following line. 
+    [System.Web.Script.Services.ScriptService]
+    public class TranslateToFrenchService : 
+        System.Web.Services.WebService
+    {
+        private string[,] translations =
+        {
+            {"good morning", "bonjour"},
+            {"good evening", "bonsoir"},
+            {"thank you", "merci"},
+            {"please", "s'il vous plait"},
+            {"welcome", "bienvenue"},
+            {"goodbye", "au revoir"},
+            {"see you soon", "à bientôt"}
+        };
+
+        [WebMethod]
+        public string TranslateToFrench(string english)
+        {
+            for (int i = 0; i &lt; translations.GetLength(0); i++)
+            {
+                if (string.Compare(
+                    english, translations[i, 0], true) == 0)
+                {
+                    return translations[i, 1];
+                }
+            }
+            return "";
+        }
+    }
+}
+</code></pre>
+<footer class="footer">
+    <p>Syntax highlighting from <a href="https://highlightjs.org/" target="_blank">highlight.js</a>.</p>
+</footer>
+</div>
+</body>
+</html>
