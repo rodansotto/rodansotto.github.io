@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="icon" href="/images/rsicon.ico">
+    <title>Using jQuery AJAX</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#TranslateButton").click(function () {
+                // have to add following statement to enable cross-domain request
+                $.support.cors = true;
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://rodansotto.com/asmx/TranslateToFrenchService.asmx/TranslateToFrench",
+                    //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                    // no need to specify contentType above as that is the default
+                    data: "english=" + $("#EnglishTextBox").val(),
+                    dataType: "text",
+                    success: function (response) {
+                        $("#FrenchLabel").html(response);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        var errorMsg = "jQuery AJAX ERROR!!!\njqXHR.statusText = " + jqXHR.statusText +
+                                        "\ntextStatus = " + textStatus + "\nerrorThrown = " + errorThrown;
+                        alert(errorMsg);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>DEMO</h1>
+    <h2>Consuming a web service using jQuery AJAX</h2>
+    <h3>The following web service translates english text to french text.</h3>
+    <div>
+        <div style="width: 160px; display: inline-block">
+            <input id="EnglishTextBox" type="text" />
+        </div>
+        <div style="width: 160px; display: inline-block">
+            <input id="TranslateButton" type="button" value="French Translation >>" />
+        </div>
+        <div id="FrenchLabel" style="width: 160px; display: inline-block">French Text</div>
+    </div>
+    <h6>***Currently only the following can be translated: good morning, good evening, thank you, please, welcome, goodbye, and see you soon.</h6>
+</body>
+</html>
